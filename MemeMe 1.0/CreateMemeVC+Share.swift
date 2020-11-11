@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension ViewController {
+extension CreateMemeVC {
     
     // Save meme
     func save(image: UIImage) {

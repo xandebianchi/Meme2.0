@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-extension ViewController: UITextFieldDelegate {
+extension CreateMemeVC: UITextFieldDelegate {
 
-    // Text constants
+    // MARK: - Auxiliar variables
+    
+    // Text constants. Must be a static one since it's in a extension.
     struct TextConstants {
         static let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
@@ -21,17 +23,16 @@ extension ViewController: UITextFieldDelegate {
         ]
     }
     
-    // Set text fields initial properties
-    func setTextFieldsInitialProperties() {
-        textTop.defaultTextAttributes = TextConstants.memeTextAttributes
-        textBottom.defaultTextAttributes = TextConstants.memeTextAttributes
-        textTop.textAlignment = NSTextAlignment.center
-        textBottom.textAlignment = NSTextAlignment.center
-        textTop.delegate = self
-        textBottom.delegate = self
-    }
+    // MARK: - Auxiliar functions
     
-    // MARK: Functions related to keyboard presentation
+    // Set text fields initial properties
+    func setupTextFieldInitialProperties(toTextField textField: UITextField) {
+        textField.defaultTextAttributes = TextConstants.memeTextAttributes
+        textField.textAlignment = NSTextAlignment.center
+        textField.delegate = self
+    }
+        
+    // MARK: - Functions related to keyboard presentation
     
     // Function called when keyboard must be shown and the screen must be moved up
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -54,7 +55,7 @@ extension ViewController: UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
     
-    // MARK: Subscribe and unsubscribe from keyboard notifications
+    // MARK: - Subscribe and unsubscribe from keyboard notifications
     
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -66,7 +67,7 @@ extension ViewController: UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    // MARK: Text field delegate functions
+    // MARK: - Text field delegate functions
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
