@@ -26,16 +26,14 @@ class CreateMemeVC: UIViewController {
     @IBOutlet weak var buttonShare: UIBarButtonItem!
     @IBOutlet weak var buttonCancel: UIBarButtonItem!
     
-    let pickerImage = UIImagePickerController()
-    let pickerCamera = UIImagePickerController()
+    let picker = UIImagePickerController()
         
     // MARK: - Default functions
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Enable camera button if camera hardware is available
-        buttonCamera.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
         
         setViewControlsToInitialState()
     }
@@ -49,22 +47,25 @@ class CreateMemeVC: UIViewController {
         super.viewDidLoad()
         
         // Set delegates in viewDidLoad for the result of camera picker be presented correctly after taking a picture
-        pickerImage.delegate = self
-        pickerCamera.delegate = self
+        picker.delegate = self
         
-        subscribeToKeyboardNotifications()
+        // Enable camera button if camera hardware is available
+        buttonCamera.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
         setupTextFieldInitialProperties(toTextField: textTop)
         setupTextFieldInitialProperties(toTextField: textBottom)
+        
+        subscribeToKeyboardNotifications()
     }
     
     // MARK: - Actions
     
     @IBAction func pickAnImageFromAlbumAction(_ sender: Any) {
-        openImagePicker(pickerImage, .photoLibrary)
+        openImagePicker(picker, .photoLibrary)
     }
 
     @IBAction func pickAnImageFromCameraAction(_ sender: Any) {
-        openImagePicker(pickerCamera, .camera)
+        openImagePicker(picker, .camera)
     }
         
     @IBAction func shareImageAction(_ sender: Any) {

@@ -16,10 +16,10 @@ extension CreateMemeVC: UITextFieldDelegate {
     // Text constants. Must be a static one since it's in a extension.
     struct TextConstants {
         static let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.black,
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: -3.0
+            .strokeColor: UIColor.black,
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            .strokeWidth: -4.0
         ]
     }
     
@@ -43,9 +43,7 @@ extension CreateMemeVC: UITextFieldDelegate {
     
     // Function called when screen must be moved down
     @objc func keyboardWillHide(_ notification:Notification) {
-        if (view.frame.origin.y != 0) { // Moved down only if it's already moved up
-            view.frame.origin.y = 0
-        }
+        view.frame.origin.y = 0
     }
 
     // Get keyboard size for move the screen
