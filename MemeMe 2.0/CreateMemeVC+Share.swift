@@ -13,8 +13,11 @@ extension CreateMemeVC {
     
     // Save meme
     func save(image: UIImage) {
-        // Create the meme for future use. In Meme 1.0, a variable with no title is used not to have a warning that it is never being used.
-        let _ = Meme(topText: textTop.text!, bottomText: textBottom.text!, originalImage: imageMeme.image!, memedImage: image)
+        // Create the meme
+        let meme = Meme(topText: textTop.text!, bottomText: textBottom.text!, originalImage: imageMeme.image!, memedImage: image)
+        
+        // Add it to the memes array in the Application Delegate
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     // Change hidden state for toolbars
@@ -46,6 +49,7 @@ extension CreateMemeVC {
             if (completed) {
                 self.save(image: memedImage)
                 activityViewController.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         self.present(activityViewController, animated: true, completion: nil)
