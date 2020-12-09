@@ -43,9 +43,10 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         transition.subtype = CATransitionSubtype.fromTop
 
         let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeVC
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.view.layer.add(transition, forKey: kCATransition)
-        navigationController?.pushViewController(createMemeViewController, animated: true)
+        //navigationController?.setNavigationBarHidden(true, animated: false)
+       // navigationController?.view.layer.add(transition, forKey: kCATransition)
+        //navigationController?.pushViewController(createMemeViewController, animated: true)
+        present(createMemeViewController, animated: true, completion: nil)
     }
     
 }
