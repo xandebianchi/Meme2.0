@@ -14,11 +14,19 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
 //        let controller = self.storyboard!.instantiateViewController(withIdentifier: "StoryNodeViewController") as! StoryNodeViewController
 //        controller.storyNode = nextStoryNode
 //        self.navigationController!.pushViewController(controller, animated: true)
+//    }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.preferredContentSizeDidChange(forChildContentContainer: UIContentContainer)
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +36,6 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         //Dequeue a cell and populate it with text from the correct prompt.
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
         cell.textLabel!.text = memes[(indexPath as NSIndexPath).row].topText
@@ -36,16 +43,7 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func addMemeAction(_ sender: Any) {
-        let transition:CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromTop
-
         let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeVC
-        //navigationController?.setNavigationBarHidden(true, animated: false)
-       // navigationController?.view.layer.add(transition, forKey: kCATransition)
-        //navigationController?.pushViewController(createMemeViewController, animated: true)
         present(createMemeViewController, animated: true, completion: nil)
     }
     

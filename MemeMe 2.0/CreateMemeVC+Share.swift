@@ -17,7 +17,8 @@ extension CreateMemeVC {
         let meme = Meme(topText: textTop.text!, bottomText: textBottom.text!, originalImage: imageMeme.image!, memedImage: image)
         
         // Add it to the memes array in the Application Delegate
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     // Change hidden state for toolbars

@@ -71,7 +71,8 @@ class CreateMemeVC: UIViewController {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        setViewControlsToInitialState()
+        //setViewControlsToInitialState()
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Auxiliar functions
