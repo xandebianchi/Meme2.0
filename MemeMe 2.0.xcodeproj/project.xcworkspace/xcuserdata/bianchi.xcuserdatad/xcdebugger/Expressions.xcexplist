@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SentMemesTableVC.viewWillAppear(_:):SentMemesTableVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "memes">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in CreateMemeVC.shareImage():CreateMemeVC+Share.swift">
       </ContextState>
    </ContextStates>

@@ -10,7 +10,7 @@ import UIKit
 
 class SentMemesCollectionVC: UICollectionViewController {
     
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes

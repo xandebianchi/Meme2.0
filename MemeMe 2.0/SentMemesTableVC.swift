@@ -10,6 +10,8 @@ import UIKit
 
 class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
