@@ -8,24 +8,34 @@
 
 import UIKit
 
-class SentMemesCollectionVC: UICollectionViewController {
+class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+   // @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
+  //  override func viewDidLoad() {
+  //      collectionView.dataSource = self
+  //      collectionView.delegate = self
+  //  }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         
-        collectionView!.reloadData()
+        //collectionView!.reloadData()
         // If reloadData() is called in the viewWillAppear method of your collection view controller, the collection view will be refreshed every time the view appears.
     }
     
-    // MARK: Collection View Data Source
+    override func viewDidAppear(_ animated: Bool) {
+        collectionView!.reloadData()
+    }
     
+    // MARK: Collection View Data Source
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
     }

@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #1 in CreateMemeVC.shareImage():CreateMemeVC+Share.swift">
+      </ContextState>
+      <ContextState
          contextName = "CreateMemeVC.cancelAction(_:):CreateMemeVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "self">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SentMemesTableVC.tableView(_:numberOfRowsInSection:):SentMemesTableVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "memes">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -17,9 +28,6 @@
                value = "memes">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in CreateMemeVC.shareImage():CreateMemeVC+Share.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

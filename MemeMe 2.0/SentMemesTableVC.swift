@@ -8,17 +8,22 @@
 
 import UIKit
 
-class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SentMemesTableVC: UITableViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    // MARK: Properties
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    // MARK: Life Cycle
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         tableView.reloadData()
     }
+    
+    // MARK: UITableViewController
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
@@ -31,15 +36,16 @@ class SentMemesTableVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        self.preferredContentSizeDidChange(forChildContentContainer: UIContentContainer)
 //    }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of prompts in the storyNode (The 2 is just a place holder)
         return memes.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Dequeue a cell and populate it with text from the correct prompt.
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
+        cell.imageView!.image = memes[(indexPath as NSIndexPath).row].memedImage
         cell.textLabel!.text = memes[(indexPath as NSIndexPath).row].topText
         return cell
     }
