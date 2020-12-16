@@ -46,10 +46,9 @@ extension CreateMemeVC {
     func shareImage() {
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        self.save(image: memedImage)
         activityViewController.completionWithItemsHandler = { activityType, completed, returnedItems, error -> () in
             if (completed) {
-           //     self.save(image: memedImage)
+                self.save(image: memedImage)
                 activityViewController.dismiss(animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
             }

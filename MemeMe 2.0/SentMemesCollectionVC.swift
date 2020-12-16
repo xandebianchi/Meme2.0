@@ -11,17 +11,24 @@ import UIKit
 class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
    // @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-  //  override func viewDidLoad() {
-  //      collectionView.dataSource = self
-  //      collectionView.delegate = self
-  //  }
-    
+    override func viewDidLoad() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+//        let space:CGFloat = 3.0
+//        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+//
+//        flowLayout.minimumInteritemSpacing = space
+//        flowLayout.minimumLineSpacing = space
+//        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
+    }
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
@@ -31,7 +38,7 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        collectionView!.reloadData()
+        collectionView.reloadData()
     }
     
     // MARK: Collection View Data Source
@@ -66,7 +73,6 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size)
     }
-    
     
     @IBAction func addMemeAction(_ sender: Any) {
         let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeVC
