@@ -10,16 +10,15 @@ import UIKit
 
 class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-   // @IBOutlet var collectionView: UICollectionView!
-    //@IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var memes: [Meme]! {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
-    override func viewDidLoad() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
+   // override func viewDidLoad() {
+       // collectionView.dataSource = self
+        //collectionView.delegate = self
         
 //        let space:CGFloat = 3.0
 //        let dimension = (view.frame.size.width - (2 * space)) / 3.0
@@ -27,7 +26,7 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
 //        flowLayout.minimumInteritemSpacing = space
 //        flowLayout.minimumLineSpacing = space
 //        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-    }
+ //   }
         
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,19 +49,19 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemesViewCell", for: indexPath) as! SentMemesViewCell
         
-       // Set the name and image
-       cell.imageMeme!.image = memes[(indexPath as NSIndexPath).row].memedImage
+       // Set the image
+       cell.imageMeme?.image = memes[(indexPath as NSIndexPath).row].memedImage
         
        return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+    //override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
         
     //    let detailController = self.storyboard!.instantiateViewController(withIdentifier: "SentMemesCollectionsVC") as! SentMemesCollectionsVC
     //    detailController.villain = self.allVillains[(indexPath as NSIndexPath).row]
     //    self.navigationController!.pushViewController(detailController, animated: true)
         
-    }
+ //   }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 3

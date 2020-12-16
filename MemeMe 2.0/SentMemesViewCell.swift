@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - SentMemesViewCell: UICollectionViewCell
+
 class SentMemesViewCell: UICollectionViewCell {
     
     // MARK: Outlets
