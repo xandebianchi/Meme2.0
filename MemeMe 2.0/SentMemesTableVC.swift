@@ -18,6 +18,11 @@ class SentMemesTableVC: UITableViewController {
     
     // MARK: Life Cycle
     
+//    override func viewDidLoad() {
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 1500.0
+//    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tableView.reloadData()

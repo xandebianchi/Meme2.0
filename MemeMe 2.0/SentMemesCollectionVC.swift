@@ -36,6 +36,10 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
         // If reloadData() is called in the viewWillAppear method of your collection view controller, the collection view will be refreshed every time the view appears.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         collectionView.reloadData()
     }
@@ -65,7 +69,7 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 3
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        //let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left
             + flowLayout.sectionInset.right
             + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
