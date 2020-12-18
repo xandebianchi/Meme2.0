@@ -8,11 +8,9 @@
 
 import UIKit
 
-// MARK: - SentMemesViewCell: UICollectionViewCell
-
 class SentMemesViewCell: UICollectionViewCell {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var imageMeme: UIImageView!
     
