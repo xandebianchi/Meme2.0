@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentMemesTableVC: UITableViewController {
+class SentMemesTableViewController: UITableViewController {
     
     // MARK: - Properties
     
@@ -47,7 +47,7 @@ class SentMemesTableVC: UITableViewController {
     // MARK: - Actions
     
     @IBAction func addMemeAction(_ sender: Any) {
-        let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeVC
+        let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeViewController
         present(createMemeViewController, animated: true, completion: nil)
     }
     

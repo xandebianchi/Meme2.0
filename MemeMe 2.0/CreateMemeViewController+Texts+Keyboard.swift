@@ -1,6 +1,6 @@
 //
 //  ViewController+Keyboard.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Alexandre Bianchi on 08/11/20.
 //  Copyright © 2020 Udacity. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension CreateMemeVC: UITextFieldDelegate {
+extension CreateMemeViewController: UITextFieldDelegate {
 
     // MARK: - Auxiliar variables
     
@@ -61,8 +61,7 @@ extension CreateMemeVC: UITextFieldDelegate {
     }
 
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Text field delegate functions

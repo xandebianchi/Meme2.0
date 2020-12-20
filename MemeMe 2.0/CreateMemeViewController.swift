@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Alexandre Bianchi on 04/11/20.
 //  Copyright © 2020 Udacity. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateMemeVC: UIViewController {
+class CreateMemeViewController: UIViewController {
     
     // MARK: - Variables and constants
     

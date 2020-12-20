@@ -1,6 +1,6 @@
 //
 //  ViewController+Camera.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Alexandre Bianchi on 08/11/20.
 //  Copyright © 2020 Udacity. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension CreateMemeVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreateMemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
        
     // MARK: - Image delegate functions
         

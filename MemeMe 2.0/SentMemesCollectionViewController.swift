@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SentMemesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Properties
     
@@ -61,7 +61,7 @@ class SentMemesCollectionVC: UICollectionViewController, UICollectionViewDelegat
     // MARK: - Actions
     
     @IBAction func addMemeAction(_ sender: Any) {
-        let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeVC
+        let createMemeViewController = storyboard?.instantiateViewController(withIdentifier: "CreateMemeVC") as! CreateMemeViewController
         present(createMemeViewController, animated: true, completion: nil)
     }
     

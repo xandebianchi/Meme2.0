@@ -1,6 +1,6 @@
 //
 //  ViewController+Image.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Alexandre Bianchi on 08/11/20.
 //  Copyright © 2020 Udacity. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension CreateMemeVC {
+extension CreateMemeViewController {
     
     // Save meme
     func save(image: UIImage) {
@@ -47,7 +47,7 @@ extension CreateMemeVC {
         let memedImage = generateMemedImage()
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { activityType, completed, returnedItems, error -> () in
-            if (completed) {
+            if completed {
                 self.save(image: memedImage)
                 activityViewController.dismiss(animated: true, completion: nil)
                 self.dismiss(animated: true, completion: nil)
